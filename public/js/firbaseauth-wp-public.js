@@ -9,9 +9,9 @@
         var fireconfig = FAWP_PHPVAR.fireconfig;
         var authurl = FAWP_PHPVAR.authurl;
         var authproviders = FAWP_PHPVAR.authproviders;
-//console.log(FAWP_PHPVAR);
+        //console.log(FAWP_PHPVAR);
 
-// Initialize Firebase
+        // Initialize Firebase
         var config = fireconfig;
         try {
             firebase.initializeApp(config);
@@ -20,7 +20,7 @@
         }
 
 
-//initialize  firebase ui app
+        //initialize  firebase ui app
         var initApp = function () {
             firebase.auth().onAuthStateChanged(function (user) {
                 
@@ -29,7 +29,7 @@
                     if (!islogged) {
                         firebase.auth().signOut();
                     }
-//                        user.getIdToken().then(function (accessToken) {            });
+                    //user.getIdToken().then(function (accessToken) {            });
 
                 } else {
                     if ($("#firebaseui-auth-container").length > 0) {
@@ -46,17 +46,14 @@
             callbacks: {
                 signInSuccess: function (currentUser, credential, redirectUrl) {
 
-//            console.log(currentUser);
-//            console.log(credential);
-//            console.log(redirectUrl);
                     var acct = null;
                     currentUser.getIdToken().then(function (accessToken) {
                         acct = accessToken;
                         window.location.replace(site_url + "/" + authurl + "?tokken=" + acct);
                     });
+                    
                     // Return type determines whether we continue the redirect automatically
                     // or whether we leave that to developer to handle.
-
                     return false;
                 },
             },
@@ -70,13 +67,11 @@
         try {
             // Initialize the FirebaseUI Widget using Firebase.
             var ui = new firebaseui.auth.AuthUI(firebase.auth());
-            initApp(); //initilize the firebase app 
+            //initilize the firebase app
+            initApp(); 
         } catch (e) {
             console.log(e);
         }
-
-
-
     }); //end (function ($) {
 
     /**
