@@ -191,7 +191,7 @@ class Firbaseauth_Wp_Public {
 
             $uid = $verifiedIdToken->getClaim('sub'); // "a-uid"
             $email = $verifiedIdToken->getClaim('email');
-            //$uname = $verifiedIdToken->getClaim('name');
+            $uname = $verifiedIdToken->getClaim('name');
           } catch (\Firebase\Auth\Token\Exception\ExpiredToken $e) {
             echo 'ExpiredToken : ';
             echo $e->getMessage();
@@ -222,7 +222,7 @@ class Firbaseauth_Wp_Public {
                 $random_password = wp_generate_password($length = 12, $include_standard_special_chars = false);
                 $userdata = array(
                     'user_login' => $email,
-                    //'display_name' => $uname,
+                    'display_name' => $uname,
                     'user_email' => $email,
                     'user_pass' => $random_password  // when not passing one it creates it automatically
                 );
