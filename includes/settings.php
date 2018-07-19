@@ -4,7 +4,7 @@ add_action('admin_init', 'fawp_settings_init');
 
 function fawp_add_admin_menu() {
 
-    add_options_page('fireauth-wp', 'fire auth wp', 'manage_options', 'fireauth-wp', 'fawp_options_page');
+    add_options_page('fireauth-wp', 'FireAuth', 'manage_options', 'fireauth-wp', 'fawp_options_page');
 }
 
 function fawp_settings_init() {
@@ -52,9 +52,7 @@ function fawp_textarea_field_0_render() {
 
     $options = get_option('fawp_settings');
     ?>
-    <textarea cols='80' rows='8' name='fawp_settings[fawp_textarea_field_0]'> 
-        <?php echo $options['fawp_textarea_field_0']; ?>
-    </textarea>
+    <textarea cols='80' rows='8' name='fawp_settings[fawp_textarea_field_0]'> <?php echo trim($options['fawp_textarea_field_0']); ?></textarea>
     <?php
 }
 
