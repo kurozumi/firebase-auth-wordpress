@@ -135,7 +135,7 @@ function fawp_checkbox_field_7_render() {
 
 function fawp_settings_section_callback() {
 
-    echo __('TODO include links and tut videos', 'fawp');
+    //echo __('TODO include links and tut videos', 'fawp');
 }
 
 function fawp_options_page() {
