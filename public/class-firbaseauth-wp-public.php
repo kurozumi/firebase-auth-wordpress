@@ -179,9 +179,7 @@ class Firbaseauth_Wp_Public {
     if (is_page($authurl)) {
       if (!is_user_logged_in()) {
         if (isset($_GET['tokken']) && $_GET['tokken']) {
-          if (!$this->startsWith($_GET['tokken'], 'Bearer')) {
-            //wp_redirect(home_url());
-          }
+
           $firebaseConfig = json_decode($this->fix_json($options['fawp_textarea_field_0']));
 
           $projectId = $firebaseConfig->projectId;
